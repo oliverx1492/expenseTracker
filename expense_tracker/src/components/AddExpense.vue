@@ -37,6 +37,8 @@ const handleInput = (e) => {
         new_input.value = ""
         price.value = ""
         category.value = ""
+
+        
     }
 
 
@@ -44,7 +46,7 @@ const handleInput = (e) => {
 
 const sendTobackend = async (obj) => {
     try {
-        const response = await fetch("http://localhost:3000/addExpense", {
+        const response = await fetch("https://expensetracker-zj7y.onrender.com/addExpense", {
             method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -55,6 +57,9 @@ const sendTobackend = async (obj) => {
         const data = await response.json()
         if(response.ok) {
             console.log("RESPONSE OK")
+            // hier wird die anzeige getriggert, da hier die rückmeldung aus dem bavkend erfolgt ist 
+            // und die daten gespeichert sind 
+            store.updated = !store.updated
         }
 
         else {
@@ -70,15 +75,16 @@ const sendTobackend = async (obj) => {
 </script>
 
 <template>
+    <p class="text-center text-5xl text-emerald-500">Ausgaben Tracker</p>
     <div class=" m-4 p-4 flex justify-center">
-
-        <form @submit="handleInput" class="flex flex-col justify-center  lg:w-1/2">
+        
+        <form @submit="handleInput" class="flex flex-col justify-center lg:w-1/2 w-full">
             <div class="flex flex-col justify-center">
 
                 <input v-model="new_input" placeholder="Neue Ausgabe"
                     class="text-center m-2 p-4 border rounded-lg focus:outline-emerald-500" type="text" />
 
-                <input v-model="price" placeholder="Preis" step="0.01"
+                <input v-model="price" placeholder="Preis" step="0.01" min="0"
                     class="text-center m-2 p-4 border rounded-lg focus:outline-emerald-500" type="number" />
 
                 <select v-model="category" class="text-center border rounded-lg  m-2 p-4 focus:outline-emerald-500">
