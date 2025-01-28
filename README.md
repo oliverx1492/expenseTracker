@@ -35,5 +35,7 @@ The Expense Tracker is a simple and intuitive tool that helps you keep track of 
 4. View your total expenses and filter them by category as needed.
 5. Keep track of your spending and manage your finances with ease!
 
----
+## Used Technologies
+Frontend: JavaScript, VueJS
+Backend: JavaScript, NodeJS, ExpressJS
 
