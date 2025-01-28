@@ -37,5 +37,5 @@ The Expense Tracker is a simple and intuitive tool that helps you keep track of 
 
 ## Used Technologies
 Frontend: JavaScript, VueJS
-Backend: JavaScript, NodeJS, ExpressJS
+Backend: JavaScript, NodeJS, ExpressJS, PostegreSQL
 
